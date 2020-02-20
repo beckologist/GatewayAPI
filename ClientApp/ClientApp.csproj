@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A0D1E5D-E210-40F8-9F33-A1624D63C38E}</ProjectGuid>
+    <ProjectGuid>{4A851048-2756-429A-8024-7B1FEB0F8F18}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GatewayAPI</RootNamespace>
-    <AssemblyName>GatewayAPI</AssemblyName>
+    <RootNamespace>ClientApp</RootNamespace>
+    <AssemblyName>ClientApp</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,14 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeController.cs" />
-    <Compile Include="MyWebAPIMessageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GatewayAPI\GatewayAPI.csproj">
+      <Project>{9a0d1e5d-e210-40f8-9f33-a1624d63c38e}</Project>
+      <Name>GatewayAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
