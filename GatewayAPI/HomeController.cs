@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Messaging;
-
+using System.Net.Http;
 
 namespace GatewayAPI
 {
@@ -17,12 +17,14 @@ namespace GatewayAPI
         }
 
 
-        public string Put(string raw)
+        public string Put(HttpRequestMessage value)
         {
-                //MessageQueue myQueue = new MessageQueue(".\\private$\\IOTData");
-                MessageQueue myQueue = new MessageQueue(Program.theNotificationsPath);
-                myQueue.Send(raw);
-                return "Put Done";
+            Console.WriteLine(value.Content.ReadAsStringAsync().Result);
+            MessageQueue myQueue = new MessageQueue(Program.theInboundPath);
+            myQueue.Send(value.Content.ReadAsStringAsync().Result);
+            return value.Content.ReadAsStringAsync().Result;
         }
+
+
     }
 }
