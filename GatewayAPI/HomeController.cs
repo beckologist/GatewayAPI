@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Messaging;
+
 
 namespace GatewayAPI
 {
@@ -11,12 +13,16 @@ namespace GatewayAPI
     {
         public string Get()
         {
-            return "Hello World!";
+            return "Running";
         }
 
-        public string Get(string name)
+
+        public string Put(string raw)
         {
-            return "Hello " + name;
+                //MessageQueue myQueue = new MessageQueue(".\\private$\\IOTData");
+                MessageQueue myQueue = new MessageQueue(Program.theNotificationsPath);
+                myQueue.Send(raw);
+                return "Put Done";
         }
     }
 }
