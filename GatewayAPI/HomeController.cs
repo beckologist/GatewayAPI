@@ -17,12 +17,10 @@ namespace GatewayAPI
         }
 
 
-        public string Put(HttpRequestMessage value)
+        public void Put(HttpRequestMessage value)
         {
-            Console.WriteLine(value.Content.ReadAsStringAsync().Result);
-            MessageQueue myQueue = new MessageQueue(Program.theInboundPath);
-            myQueue.Send(value.Content.ReadAsStringAsync().Result);
-            return value.Content.ReadAsStringAsync().Result;
+            //Console.WriteLine(value.Content.ReadAsStringAsync().Result);
+            Program.theInboundMessageQueue.Send(value.Content.ReadAsStringAsync().Result);
         }
 
 

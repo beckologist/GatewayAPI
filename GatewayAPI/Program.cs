@@ -14,8 +14,8 @@ namespace GatewayAPI
         // Constants for working with MSMQ
         public static string theInboundPath = @".\Private$\IOTData";
         public static string theNotificationsPath = @".\Private$\IOTNotifications";
-        public MessageQueue theInboundMessageQueue = new MessageQueue(theInboundPath);
-        public MessageQueue theNotificationsMessageQueue = new MessageQueue(theNotificationsPath);
+        public static MessageQueue theInboundMessageQueue = new MessageQueue(theInboundPath);
+        public static MessageQueue theNotificationsMessageQueue = new MessageQueue(theNotificationsPath);
 
         static void Main(string[] args)
         {
