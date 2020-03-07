@@ -11,6 +11,7 @@ namespace GatewayAPI
 {
     class Program
     {
+
         // Constants for working with MSMQ
         public static string theInboundPath = @".\Private$\IOTData";
         public static string theNotificationsPath = @".\Private$\IOTNotifications";
@@ -75,7 +76,7 @@ namespace GatewayAPI
             {
                 var config = new HttpSelfHostConfiguration("http://localhost:5801");
                 config.Routes.MapHttpRoute("default",
-                                            "api/537/{controller}/{id}",
+                                            "api/537/Things/Data/{controller}/{id}",
                                             new { controller = "Home", id = RouteParameter.Optional });
 
                 var server = new HttpSelfHostServer(config);
